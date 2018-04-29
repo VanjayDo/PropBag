@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>你的简历</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<style>
+    body {
+        padding-left: 10%;
+    }
+
+    hr {
+        margin: 0 0 10px 0;
+    }
+
+    #name {
+        font-size: 200%;
+        font-weight: bolder;
+        margin: 0;
+    }
+
+    .title {
+        font-size: 150%;
+        font-weight: bolder;
+    }
+
+    .noBorder * {
+        border: 0 solid transparent !important;
+        padding-bottom: 0;
+    }
+
+    #pic{
+        margin-top: -50px;
+    }
+
+    #contact *:not(#pic) {
+        border: 0 solid transparent !important;
+        padding: 0.5em 0 0 0;
+    }
+
+    .contact-list {
+        display: inline-block;
+        width: 245px;
+    }
+
+    #education {
+        width: 70%;
+        margin-top: -10px;
+        border: 0 solid transparent !important;
+    }
+
+    #university {
+        font-size: 110%;
+        font-weight: bold;
+    }
+
+    #honour * {
+        padding-top: 0;
+        margin: 0;
+    }
+
+    #prize-list * {
+        padding-left: 18%;
+    }
+
+    .exp {
+        width: 70%;
+    }
+
+    .list-title {
+        font-weight: bold;
+    }
+
+    .exp > tbody > tr.exp-content > td {
+        padding-top: 0;
+    }
+
+    #skill-list > tr > td {
+        padding-top: 0;
+    }
+</style>
+
+<body>
+    <table class="table" id="contact">
+        <tr id="name">
+            <td colspan="1">
+                你的名字
+            </td>
+        </tr>
+        <tr>
+            <td class="contact-list">
+                <li>手机: 你的手机号</li>
+            </td>
+            <td class="contact-list">
+                <li>Github: https://github.com/GitHubID</li>
+            </td>
+            <td rowspan="3">
+                <img id="pic" src="证件照片地址" width="100px;" alt="你的证件照"> 
+            </td>
+        </tr>
+        <tr>
+            <td class="contact-list">
+                <li>邮箱: 你的邮箱地址</li>
+            </td>
+            <td class="contact-list">
+                <li>Blog: 你的博客地址</li>
+            </td>
+        </tr>
+
+    </table>
+
+    <hr>
+
+    <table class="table-condensed" id="education">
+        <thead class="title">
+        <th>教育经历</th>
+        </thead>
+        <tbody class="noBorder">
+        <tr id="university">
+            <td>开始时间 - 毕业时间</td>
+            <td>
+                院校名称
+            </td>
+            <td>专业名称</td>
+        </tr>
+        <tr id="honour">
+            <td colspan="3">
+                <li style="font-weight: bold">专业排名: 前%多少?</li>
+                <li style="font-weight: bold">获得荣誉:</li>
+                <div id="prize-list">
+                    <p>2016 - 荣誉1</p>
+                    <p>2017 - 荣誉2</p>
+                    <p>2017 - 荣誉3</p>
+                    <p>2017 - 荣誉4</p>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <table class="table-condensed exp">
+        <thead class="title">
+            <th>校园经历</th>
+        </thead>
+        <tbody class="noBorder">
+            <tr class="list-title">
+                <div>
+                    <td>
+                        <li>开始时间 - 结束时间</li>
+                    </td>
+                    <td>
+                        部门/单位/社团
+                    </td>
+                    <td>
+                        你在活动中的身份
+                    </td>
+                </div>
+            </tr>
+            <tr class="exp-content">
+                <td colspan="3">活动内容/个人经历</td>
+            </tr>
+
+                    <tr class="list-title">
+                <div>
+                    <td>
+                        <li>开始时间 - 结束时间</li>
+                    </td>
+                    <td>
+                        部门/单位/社团
+                    </td>
+                    <td>
+                        你在活动中的身份
+                    </td>
+                </div>
+            </tr>
+            <tr class="exp-content">
+                <td colspan="3">活动内容/个人经历</td>
+            </tr>
+
+                    <tr class="list-title">
+                <div>
+                    <td>
+                        <li>开始时间 - 结束时间</li>
+                    </td>
+                    <td>
+                        部门/单位/社团
+                    </td>
+                    <td>
+                        你在活动中的身份
+                    </td>
+                </div>
+            </tr>
+            <tr class="exp-content">
+                <td colspan="3">活动内容/个人经历</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <table class="table-condensed exp">
+        <thead class="title">
+        <th>项目经历</th>
+        </thead>
+        <tbody class="noBorder">
+            <tr class="list-title">
+                <div>
+                    <td>
+                        <li>项目名称</li>
+                    </td>
+                    <td>
+                       你在项目中的身份
+                    </td>
+                </div>
+            </tr>
+            <tr class="exp-content">
+                <td colspan="3">
+                    项目介绍, 方向/内容/创新点/技术点
+                </td>
+            </tr>
+
+            <tr class="list-title">
+                <div>
+                    <td>
+                        <li>项目名称</li>
+                    </td>
+                    <td>
+                       你在项目中的身份
+                    </td>
+                </div>
+            </tr>
+            <tr class="exp-content">
+                <td colspan="3">
+                    项目介绍, 方向/内容/创新点/技术点
+                </td>
+            </tr>
+
+            <tr class="list-title">
+                    <div>
+                        <td>
+                            <li>项目名称</li>
+                        </td>
+                        <td>
+                           你在项目中的身份
+                        </td>
+                    </div>
+                </tr>
+                <tr class="exp-content">
+                    <td colspan="3">
+                        项目介绍, 方向/内容/创新点/技术点
+                    </td>
+                </tr>
+
+        </tbody>
+    </table>
+
+    <hr>
+
+    <table class="table-condensed">
+        <thead>
+        <th class="title">个人技能</th>
+        </thead>
+        <tbody id="skill-list">
+        <tr>
+            <td colspan="3">
+                <li>技能1</li>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+               <li>技能2</li>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <li>技能3</li>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <table class="table-condensed">
+        <thead class="title">
+        <th>其他</th>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <li>如语言水平等, CET6?</li>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+</body>
+</html>
