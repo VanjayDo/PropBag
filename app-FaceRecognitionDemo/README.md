@@ -6,5 +6,8 @@
 ### Dockerfile
 此处的Dockerfile可以用于构建该应用的镜像, 构建完成后请使用`docker run -d --name faceRecognitionDemo -p 8000:8000 构建镜像名 bash autostart`运行容器, 访问主机ip的绑定端口即可发现`this is just a test, and it works`字样, 说明运行成功.
 
+### Centos上安装face_recognition
+在运行`pip3 install face_recognition`之前请先运行`yun install python34-devel boost-devel`
+
 ### frontend目录
 存放了本项目的前端项目, 基于vue编写.
