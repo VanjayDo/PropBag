@@ -10,8 +10,3 @@ MysqlWithMysql2Redis是一个基于[官方的mysql5.7 dockerfile](https://github
 使用`docker run -d --name mysql2redis --env MYSQL_ROOT_PASSWORD=123456 vanjaydo/mysql2redis --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci`命令即可快速启动
 
 详情请见 👉 [使用Mysql2Redis自动更新数据到Redis](https://blog.safeandsound.cn/post/PushData2RedisWithMysql2Redis.html)
-
-
-git clone --depth=1 https://github.com/mysqludf/lib_mysqludf_json.git
-
-gcc $(/usr/bin/mysql_config_editor --cflags) -shared -fPIC -o lib_mysqludf_json.so lib_mysqludf_json.c 
