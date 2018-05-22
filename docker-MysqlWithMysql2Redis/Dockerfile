@@ -88,16 +88,23 @@ RUN cd ~ \
     && make \
     && make install 
 
-RUN cd ~ \
-    && git clone --depth=1 https://github.com/mysqludf/lib_mysqludf_json.git \
-    && cd lib_mysqludf_json \
-    && cp lib_mysqludf_json.so /usr/lib/mysql/plugin
+# if you are modifying this file and want to use mysql below version 5.7.8, you should uncomment this section to get lib_mysqludf_json.so and uncomment line 106 to install json udf at startup
+#RUN cd ~ \
+#    && git clone --depth=1 https://github.com/mysqludf/lib_mysqludf_json.git \
+#    && cd lib_mysqludf_json \
+#    && gcc $(mysql_config --cflags) -shared -fPIC -o lib_mysqludf_json.so lib_mysqludf_json.c \
+#    && cp lib_mysqludf_json.so /usr/lib/mysql/plugin
 
 RUN cd ~ \
     && git clone --depth=1 https://github.com/dawnbreaks/mysql2redis.git \
     && cd mysql2redis \
     && make \
     && cp lib_mysqludf_redis_v2.so /usr/lib/mysql/plugin/
+
+# create udf at startup
+RUN cd ~/mysql2redis/test \
+    # && mv install_json_udf.sql /docker-entrypoint-initdb.d \  # if you are modifying this file and want to use mysql below version 5.7.8, you should uncomment this line to install json udf at startup
+    && mv install_redis_udf.sql /docker-entrypoint-initdb.d
 
 # clean
 RUN cd ~ \
@@ -109,13 +116,6 @@ RUN cd ~ \
 VOLUME /var/lib/mysql
 
 COPY docker-entrypoint.sh /usr/local/bin/
-
-# create udf
-RUN cd ~ \
-    && echo "CREATE FUNCTION redis_servers_set_v2 RETURNS int SONAME 'lib_mysqludf_redis_v2.so'; " >> CreateFunction.sql \ 
-    && echo "CREATE FUNCTION redis_command_v2 RETURNS int SONAME 'lib_mysqludf_redis_v2.so'; " >> CreateFunction.sql \
-    && echo "CREATE FUNCTION free_resources RETURNS int SONAME 'lib_mysqludf_redis_v2.so'; " >> CreateFunction.sql \
-    && mv CreateFunction.sql /docker-entrypoint-initdb.d
 
 # ensure docker-entrypoint.sh is executable
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
