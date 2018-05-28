@@ -7,11 +7,14 @@
 #### app
 即`application`, 该类型文件夹中存放应用程序demo;
 
+#### cfg
+即`configuration`, 该类型文件夹中存放配置文件;
+
 #### docker
 即`docker`, 该类型文件夹中存放docker相关内容: dockerfile等;
 
-#### cfg
-即`configuration`, 该类型文件夹中存放配置文件;
+#### script
+即`script`, 该类型文件夹中存放脚本文件;
 
 #### template
 即`template`, 该类型文件夹中存放模板文件;
