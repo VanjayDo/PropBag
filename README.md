@@ -1,9 +1,13 @@
-# store
+# Prop Bag
 
-### 介绍
-为存放一些配置文件和演示的小项目(主要是[博客](https://blog.safeandsound.cn)上的)而创建的repo.
+### 简介
+取名自👉哆啦A梦的四次元口袋(Robot confidential prop of special use four second yuan of space inner i Gena bag).
 
-### 文件夹开头缩写说明
+😄这里存放一些演示的小项目(主要是[博客](https://blog.safeandsound.cn)上的)、配置文件、小脚本之类的东西, 大多是我觉得有用的或是灵光一现写下的, 觉得没有必要单独放一个repo, 所以集结在此.
+
+### 文件夹命名说明
+`-`之前的名称为类别 👇
+
 #### app
 即`application`, 该类型文件夹中存放应用程序demo;
 
