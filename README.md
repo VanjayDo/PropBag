@@ -18,7 +18,7 @@
 即`docker`, 该类型文件夹中存放docker相关内容: dockerfile等;
 
 #### script
-即`script`, 该类型文件夹中存放脚本文件;
+即`script`脚本, 该类型文件夹中存放脚本文件;
 
-#### template
-即`template`, 该类型文件夹中存放模板文件;
+#### html
+即`html`网页, 该类型文件夹中存放网页工具/模板文件;
