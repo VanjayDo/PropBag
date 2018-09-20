@@ -1,0 +1,40 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GB2312 UNICODE转换工具</title>
+<div align=center>
+<table style="border-collapse: collapse; border: 0; width: 600; height: 26;"  >
+  <tr>
+    <td>
+    <p style="text-align: center; font-size: 200%">GB2312与UNICODE编码互转工具 </p>
+    <p  style="font-weight: 800;">使用方法：</p>
+    <p>在下面的文本框中输入中文文字，点击“TO UNICODE”，即可将其转化为UNICODE编码；再点击“TO GB2312”，即可将其还原为简体中文（GB2312编码）。</p>
+    </td>
+  </tr>
+</table>
+</div>
+
+<p align=center>
+<textarea cols=82 rows=10 id=code>
+</textarea> </p>
+<p align=center>
+<input type=button onclick=encode(code,this) value="TO UNICODE">
+</p>
+
+<script>
+var mode="zhuan";
+function encode(obj,btn){
+   if(mode=="zhuan"){
+       obj.value=obj.value.replace(/[^\u0000-\u00FF]/g,function($0){return escape($0).replace(/(%u)(\w{4})/gi,"&#x$2;")});
+       btn.value="TO GB2312";
+       mode="huan";
+   }else{
+       obj.value=unescape(obj.value.replace(/&#x/g,'%u').replace(/;/g,''));
+       btn.value="TO UNICODE";
+       mode="zhuan";
+   }
+}
+</script>
+
+</body>
+</html>
