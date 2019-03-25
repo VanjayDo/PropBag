@@ -1,3 +1,5 @@
+![](https://img.shields.io/github/last-commit/wenjaydu/propbag.svg?style=for-the-badge)
+
 # Prop Bag
 
 ### 简介
