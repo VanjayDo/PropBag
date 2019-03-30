@@ -1,0 +1,14 @@
+{
+	"color_scheme": "Packages/Monokai Extended/Monokai Extended Origin.tmTheme",
+	"font_size": 22,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"open_files_in_new_window": false,
+	"show_encoding": true,
+	"spell_check": true,
+	"theme": "Adaptive.sublime-theme",
+	"update_check": false,
+	"word_wrap": true
+}

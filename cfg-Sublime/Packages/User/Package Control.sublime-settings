@@ -1,0 +1,25 @@
+{
+	"bootstrapped": true,
+	"channels":
+	[
+		"http://packagecontrol.io/channel_v3.json"
+	],
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"AceJump",
+		"Codecs33",
+		"ConvertToUTF8",
+		"Markdown Extended",
+		"MarkdownEditing",
+		"Monokai Extended",
+		"OmniMarkupPreviewer",
+		"Package Control",
+		"SideBarEnhancements",
+		"SublimeCodeIntel",
+		"WordCount"
+	],
+	"submit_url": "http://packagecontrol.io/submit"
+}
