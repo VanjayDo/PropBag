@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>员工信息</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        create_api = 'http://localhost:5000/api/employee/create';
+        delete_api = 'http://localhost:5000/api/employee/delete_by_employee_id';
+        find_api = 'http://localhost:5000/api/employee/find_by_name';
+        findall_api = 'http://localhost:5000/api/employee/findall';
+        update_api = 'http://localhost:5000/api/employee/update_by_employee_id';
+
+        $(document).ready(function () {
+            $("#create_button").click(function (message) {
+                let employee_id = $("#employee_id").val();
+                let name = $("#name").val();
+                let gender = $("#gender").val();
+                let phone_num = $("#phone_num").val();
+                let dept_id = $("#dept_id").val();
+                let title_id = $("#title_id").val();
+                let position_id = $("#position_id").val();
+                let request_data = {
+                    'employee_id': employee_id,
+                    'name': name,
+                    'gender': gender,
+                    'phone_num': phone_num,
+                    'dept_id': dept_id,
+                    'title_id': title_id,
+                    'position_id': position_id
+                };
+                if (name !== '' && employee_id !== '' && gender !== '' && phone_num !== '' && dept_id !== '' && title_id !== '' && position_id !== '') {
+                    $.ajax({
+                        type: "POST",
+                        url: create_api,
+                        data: JSON.stringify(request_data),
+                        success: function (result) {
+                            alert(result);
+                        },
+                        error: function (e) {
+                            alert('error');
+                        }
+                    });
+                } else {
+                    alert('请填写新员工的所有信息')
+                }
+            });
+
+            $("#update_button").click(function (message) {
+                let employee_id = $("#employee_id").val();
+                let name = $("#name").val();
+                let gender = $("#gender").val();
+                let phone_num = $("#phone_num").val();
+                let dept_id = $("#dept_id").val();
+                let title_id = $("#title_id").val();
+                let position_id = $("#position_id").val();
+                let request_data = {
+                    'employee_id': employee_id,
+                    'name': name,
+                    'gender': gender,
+                    'phone_num': phone_num,
+                    'dept_id': dept_id,
+                    'title_id': title_id,
+                    'position_id': position_id
+                };
+                if (name !== '' && employee_id !== '' && gender !== '' && phone_num !== '' && dept_id !== '' && title_id !== '' && position_id !== '') {
+                    $.ajax({
+                        type: "POST",
+                        url: update_api,
+                        data: JSON.stringify(request_data),
+                        success: function (result) {
+                            alert(result);
+                        },
+                        error: function (e) {
+                            alert('error');
+                        }
+                    });
+                } else {
+                    alert('请填写新员工的所有信息')
+                }
+            });
+
+            $("#find_button").click(function (message) {
+                let name = $("#name").val();
+                let request_data = {
+                    'name': name,
+                };
+                if (name !== '') {
+                    $.ajax({
+                        type: "POST",
+                        url: find_api,
+                        data: JSON.stringify(request_data),
+                        success: function (result) {
+                            if (result.length !== 0) {
+                                $('#notification').text('❗以下是所有员工名为 ' + name + ' 的员工👇');
+                                let output = '<table border="1"><tr><td>id</td><td>员工id</td><td>员工姓名</td><td>员工性别</td>' +
+                                    '<td>电话号码</td><td>部门编号</td><td>职称编号</td><td>职位编号</td>';
+                                for (let i = 0; i < result.length; i++) {
+                                    output += '<tr>';
+                                    for (let j = 0; j < result[i].length; j++) {
+                                        output += '<td>' + result[i][j] + '</td>';
+                                    }
+                                    output += '</tr>';
+                                }
+                                output += '</table>';
+                                $('#content').html(output);
+                            } else {
+                                let output = '';
+                                $('#content').html(output);
+                                $('#notification').text('❗未查找到任何名为 ' + name + ' 的员工');
+                            }
+                        },
+                        error: function (e) {
+                            alert('error');
+                        }
+                    });
+                } else {
+                    alert('员工姓名字段必须填写以用于搜索')
+                }
+            });
+
+            $("#findall_button").click(function (message) {
+                $.ajax({
+                        type: "POST",
+                        url: findall_api,
+                        success: function (result) {
+                            if (result.length !== 0) {
+                                $('#notification').text('❗以下是表中的所有员工👇');
+                                let output = '<table border="1"><tr><td>id</td><td>员工id</td><td>员工姓名</td><td>员工性别</td>' +
+                                    '<td>电话号码</td><td>部门编号</td><td>职称编号</td><td>职位编号</td>';
+                                for (let i = 0; i < result.length; i++) {
+                                    output += '<tr>';
+                                    for (let j = 0; j < result[i].length; j++) {
+                                        output += '<td>' + result[i][j] + '</td>';
+                                    }
+                                    output += '</tr>';
+                                }
+                                output += '</table>';
+                                $('#content').html(output);
+                            } else {
+                                let output = '';
+                                $('#content').html(output);
+                                $('#notification').text('❗未查找到任何员工');
+                            }
+                        },
+                        error: function (e) {
+                            alert('error');
+                        }
+                    }
+                );
+            });
+            $("#delete_button").click(function (message) {
+                let employee_id = $("#employee_id").val();
+                let request_data = {
+                    'employee_id': employee_id,
+                };
+                if (employee_id !== '') {
+                    $.ajax({
+                        type: "POST",
+                        url: delete_api,
+                        data: JSON.stringify(request_data),
+                        success: function (result) {
+                            alert(result);
+                        },
+                        error: function (e) {
+                            alert('error');
+                        }
+                    });
+                } else {
+                    alert('请填写想要删除的员工id')
+                }
+            });
+
+        })
+    </script>
+</head>
+<body>
+<h1 style="text-align: center">职工信息管理</h1>
+<button onclick="window.location.href='/index.html'">返回主页面</button>
+<div>
+    <div class="container">
+        <h3>请填写下表:</h3>
+        <form action="#" id="adv-search-form" class="clearfix">
+            <fieldset>
+                员工id:　　<input type="text" id="employee_id" placeholder="员工id" size="50"><br>
+                员工姓名:　<input type="text" id="name" placeholder="员工姓名" size="50"><br>
+                性别:　<input type="text" id="gender" placeholder="员工性别" size="50"><br>
+                电话号码:　<input type="text" id="phone_num" placeholder="员工电话号码" size="50"><br>
+                部门编号: <input type="text" id="dept_id" placeholder="员工所在部门编号" size="50"><br>
+                职称编号: <input type="text" id="title_id" placeholder="员工职称编号" size="50"><br>
+                职位编号: <input type="text" id="position_id" placeholder="员工职位编号" size="50"><br>
+            </fieldset>
+            <br>
+            <button id="create_button">创建新员工</button>
+            <button id="delete_button">根据员工id删除员工</button>
+            <button id="update_button">根据员工id更新员工信息</button>
+            <button id="find_button">根据员工姓名查找员工</button>
+            <button id="findall_button">获取所有员工</button>
+        </form>
+    </div>
+</div>
+
+<p id="notification"></p>
+<dev id="content"></dev>
+
+</body>
+</html>
